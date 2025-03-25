@@ -1,16 +1,18 @@
 import os
-import json
 import requests
 from datetime import datetime
-import boto3
 import pandas as pd
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
+
 ### environment variables
 # SPOTIFY_API_KEY
 
+# Load environment variables from a .env file
 load_dotenv()
+
+# Define and create a temporary directory path if not exists
 tmp_dir = os.path.join(os.getcwd(), "tmp")
 os.makedirs(tmp_dir, exist_ok=True)
 
@@ -18,6 +20,7 @@ os.makedirs(tmp_dir, exist_ok=True)
 SPOTIFY_API_URL = "https://api.spotify.com/v1/artists"  
 SPOTIFY_API_KEY = os.getenv("SPOTIFY_API_KEY")
 
+# Spotify artist ids
 ids = {"23fqKkggKUBHNkbKtXEls4","1Cs0zKBU1kc0i8ypK3B9ai","07lpuAglRqTvLjElXLCVbW"}
 
 # Function to fetch artist data from Spotify API
